@@ -101,5 +101,9 @@ public class Printinglinkedlist {
 		}
 		
 	}
+	public static void deleteposition(SinglyLinkedListNode head,int position)
+	{
+		
+	}
 
 }
