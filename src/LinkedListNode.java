@@ -20,18 +20,46 @@ public class LinkedListNode{
 		//Scanner sc=new Scanner(System.in);
         //int line=sc.nextInt();
         ListNode head1=null;
-        head1=insert_node(head1,3);
+        head1=insert_node(head1,1);
+        head1=insert_node(head1,2);
         head1=insert_node(head1,5);
-        head1=insert_node(head1,6);
         display_list(head1);
         
         ListNode head2=null;
-        head2=insert_node(head2,1);
-        head2=insert_node(head2,2);
+        head2=insert_node(head2,3);
+        head2=insert_node(head2,4);
         head2=insert_node(head2,10);
         display_list(head2);
-        ListNode new_head=merge(head1, head2);
+        ListNode new_head=merger(head1, head2);
         display_list(new_head);
+	}
+	public static ListNode merger(ListNode head1,ListNode head2)
+	{
+		ListNode curr2=head2;
+		ListNode curr1=head1;
+		if(curr2.data<head1.data)
+		{
+			ListNode temp=new ListNode(curr2.data);
+			temp.next=head1;
+			head1=temp;
+			curr1=head1;
+		}
+		while(curr2!=null)
+		{
+				ListNode curr=curr1;
+			    ListNode prev=curr;;
+				while(curr!=null && curr.data<=curr2.data)
+				{
+					prev=curr;
+					curr=curr.next;
+				}
+				prev.next=new ListNode(curr2.data);
+				prev.next.next=curr;
+			
+			curr2=curr2.next;
+		}
+		
+		return head1;
 	}
 	public static ListNode merge(ListNode head1,ListNode head2)
 	{

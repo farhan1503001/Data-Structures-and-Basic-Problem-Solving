@@ -74,6 +74,27 @@ public class BinarySearchTree {
 			return r_depth+1;
 		}
 	}
+	public static void level_order(Node root)
+	{
+		//declare queue//just like breadth first search
+		Queue<Node>leveler=new LinkedList<Node>();
+		//add root to the queue
+		leveler.add(root);
+		System.out.println();
+		while(!leveler.isEmpty())
+		{
+			Node temp=leveler.poll();
+			System.out.print(temp.data+" ");
+			if(temp.left!=null)
+			{
+				leveler.add(temp.left);
+			}
+			if(temp.right!=null)
+			{
+				leveler.add(temp.right);
+			}
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
@@ -88,6 +109,7 @@ public class BinarySearchTree {
 		post_order(root);
 		Inorder(root);
 		int depth=bst_depth(root);
+		level_order(root);
 		System.out.println("\n depth is "+depth);
 
 	}
