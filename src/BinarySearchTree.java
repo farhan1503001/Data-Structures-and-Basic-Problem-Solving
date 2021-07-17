@@ -95,6 +95,29 @@ public class BinarySearchTree {
 			}
 		}
 	}
+	public static void lowest_common_anchestor(Node root,int num1,int num2)
+	{
+		//it's search operation where we will move and try to find
+		//anchestor happens to be greater than left smaller than right
+		while(root!=null)
+		{
+			//if root is greater than both num1 and num2 then they are in left
+			if(root.data>num1 && root.data>num2)
+			{
+				root=root.left;
+				
+			}
+			else if(root.data<num1 && root.data<num2)
+			{
+				root=root.right;
+			}
+			else {
+				break;
+			}
+		}
+		System.out.println();
+		System.out.println(root.data);
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
@@ -111,6 +134,7 @@ public class BinarySearchTree {
 		int depth=bst_depth(root);
 		level_order(root);
 		System.out.println("\n depth is "+depth);
+		lowest_common_anchestor(root,8,14);
 
 	}
 
