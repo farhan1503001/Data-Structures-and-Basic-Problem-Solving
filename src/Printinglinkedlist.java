@@ -12,6 +12,49 @@ class SinglyLinkedListNode {
 	}
 }
 public class Printinglinkedlist {
+	public static boolean compare_linkedlists(SinglyLinkedListNode head1,SinglyLinkedListNode head2)
+	{
+		SinglyLinkedListNode curr1=head1;
+        SinglyLinkedListNode curr2=head2;
+        boolean status=true;
+        int len1=0,len2=0;
+        while(curr1!=null)
+        {
+            curr1=curr1.next;
+            len1++;
+        }
+        while(curr2!=null)
+        {
+            curr2=curr2.next;
+            len2++;
+        }
+        if(len1!=len2)
+        {
+            return false;
+        }
+        else{
+            curr1=head1;
+            curr2=head2;
+            while(curr1!=null||curr2!=null)
+            {
+                if(curr1.data!=curr2.data)
+                {
+                    status=false;
+                    break;
+                }
+                curr1=curr1.next;
+                curr2=curr2.next;
+            }
+            if(status)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+	}
 	public static void print_reverse(SinglyLinkedListNode head)
 	{
 		if(head==null)
